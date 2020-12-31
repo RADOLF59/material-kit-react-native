@@ -27,21 +27,15 @@ export default class Pro extends React.Component {
             <Block>
               <Block >
                 <Block>
-                  <Text color="white" size={60}>Unlock</Text>
+                  <Text color="white" size={60}>Stop</Text>
                 </Block>
                 <Block>
-                  <Text color="white" size={60}>Material</Text>
+                  <Text color="white" size={60}>Point</Text>
                 </Block>
                 <Block row>
-                  <Text color="white" size={60}>Kit</Text>
-                  <Block middle style={styles.pro}>
-                    <Text size={16} color="white">PRO</Text>
-                  </Block>
+                  <Text color="white" size={60}>By us</Text>
                 </Block>
               </Block>
-              <Text size={16} color='rgba(255,255,255,0.6)'>
-                Take advantage of all the features and screens made upon Galio Design System, coded on React Native for both.
-              </Text>
               <Block row style={{ marginTop: theme.SIZES.BASE * 1.5, marginBottom: theme.SIZES.BASE * 4 }}>
                 <Image
                   source={require('../assets/images/ios.png')}
@@ -55,7 +49,7 @@ export default class Pro extends React.Component {
                 style={styles.button}
                 color={materialTheme.COLORS.BUTTON_COLOR}
                 onPress={() => navigation.navigate('Home')}>
-                GET PRO VERSION
+                Back to home
               </Button>
             </Block>
           </Block>

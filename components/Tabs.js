@@ -121,7 +121,7 @@ export default class MenuHorizontal extends React.Component {
 const styles = StyleSheet.create({
   container: {
     width: width,
-    backgroundColor: theme.COLORS.WHITE,
+    backgroundColor: materialTheme.COLORS.INFO,
     zIndex: 2,
   },
   shadow: {

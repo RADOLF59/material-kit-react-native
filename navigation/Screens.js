@@ -7,6 +7,9 @@ import { Block, Text, theme } from "galio-framework";
 
 import ComponentsScreen from '../screens/Components';
 import HomeScreen from '../screens/Home';
+import TeacherScreen from '../screens/Teacher';
+import LoginScreen from '../screens/Auth/Login';
+import RegisterScreen from '../screens/Auth/Register';
 import OnboardingScreen from '../screens/Onboarding';
 import ProfileScreen from '../screens/Profile';
 import ProScreen from '../screens/Pro';
@@ -25,7 +28,6 @@ const profile = {
   avatar: Images.Profile,
   name: "Rachel Brown",
   type: "Seller",
-  plan: "Pro",
   rating: 4.8
 };
 
@@ -98,7 +100,7 @@ function HomeStack(props) {
           header: ({ navigation, scene }) => (
             <Header 
               search
-              tabs
+              // tabs
               title="Home"
               navigation={navigation}
               scene={scene}
@@ -107,8 +109,8 @@ function HomeStack(props) {
         }}
       />
       <Stack.Screen 
-        name="Pro"
-        component={ProScreen}
+        name="Teacher"
+        component={TeacherScreen}
         options={{
           header: ({ navigation, scene }) => (
             <Header back white transparent title="" navigation={navigation} scene={scene} />
@@ -152,9 +154,10 @@ function AppStack(props) {
       }}
       initialRouteName="Home"
     >
+      
       <Drawer.Screen
-        name="Home"
-        component={HomeStack}
+        name="Pro"
+        component={ProScreen}
         options={{
           drawerIcon: ({ focused }) => (
             <Icon
@@ -166,30 +169,16 @@ function AppStack(props) {
           )
         }}
       />
+
       <Drawer.Screen
-        name="Woman"
-        component={ProScreen}
+        name="Home"
+        component={HomeStack}
         options={{
           drawerIcon: ({ focused }) => (
             <Icon
               size={16}
-              name="md-woman"
-              family="ionicon"
-              color={focused ? "white" : materialTheme.COLORS.MUTED}
-              style={{ marginLeft: 4, marginRight: 4 }}
-            />
-          )
-        }}
-      />
-      <Drawer.Screen
-        name="Man"
-        component={ProScreen}
-        options={{
-          drawerIcon: ({ focused }) => (
-            <Icon
-              size={16}
-              name="man"
-              family="entypo"
+              name="shop"
+              family="GalioExtra"
               color={focused ? "white" : materialTheme.COLORS.MUTED}
             />
           )
@@ -211,7 +200,7 @@ function AppStack(props) {
       />
       <Drawer.Screen
         name="New Collection"
-        component={ProScreen}
+        component={ComponentsStack}
         options={{
           drawerIcon: ({ focused }) => (
             <Icon
@@ -243,7 +232,7 @@ function AppStack(props) {
         options={{
           drawerIcon: ({ focused }) => (
             <Icon
-              size={16}
+              size={16}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
               name="gears"
               family="font-awesome"
               color={focused ? "white" : materialTheme.COLORS.MUTED}
@@ -268,8 +257,8 @@ function AppStack(props) {
         }}
       />
       <Drawer.Screen
-        name="Sign In"
-        component={ProScreen}
+        name="Login"
+        component={LoginScreen}
         options={{
           drawerIcon: ({ focused }) => (
             <Icon
@@ -282,10 +271,19 @@ function AppStack(props) {
         }}
       />
       <Drawer.Screen
-        name="Sign Up"
-        component={ProScreen}
+        name="Register"
+        component={RegisterScreen}
         options={{
-          drawerIcon: ({ focused }) => (
+          header: ({ navigation, scene }) => (
+            <Header 
+              search
+              tabs
+              title="register"
+              navigation={navigation}
+              scene={scene}
+            />
+          )
+          ,drawerIcon: ({ focused }) => (
             <Icon
               size={16}
               name="md-person-add"
@@ -299,21 +297,57 @@ function AppStack(props) {
   );
 }
 
-export default function OnboardingStack(props) {
+// export default function OnboardingStack(props) {
+//   return (
+//     <Stack.Navigator mode="card" headerMode="none">
+//       <Stack.Screen
+//         name="Onboarding"
+//         component={OnboardingScreen}
+//         option={{
+//           headerTransparent: true
+//         }}
+//       />
+//       <Stack.Screen name="App" component={AppStack} />
+//     </Stack.Navigator>
+//   );
+// }
+
+export default function LoginStack(props) {
+  return (
+    <Stack.Navigator mode="card" headerMode="none" screenOptions={{
+      headerStyle: {
+        backgroundColor: materialTheme.COLORS.INFO,
+      },
+      headerTintColor: '#fff',
+      headerTitleStyle: {
+        fontWeight: 'bold',
+      },
+    }}>
+      <Stack.Screen
+        name="Login"
+        component={LoginScreen}
+        option={{
+          headerTransparent: false,
+        }}
+      />
+      <Stack.Screen name="Register" component={registerStack} />
+      <Stack.Screen name="App" component={AppStack} />
+    </Stack.Navigator>
+  );
+}
+function registerStack(props) {
   return (
     <Stack.Navigator mode="card" headerMode="none">
       <Stack.Screen
-        name="Onboarding"
-        component={OnboardingScreen}
-        option={{
-          headerTransparent: true
+        name="Register"
+        component={RegisterScreen}
+        options={{
         }}
       />
       <Stack.Screen name="App" component={AppStack} />
     </Stack.Navigator>
   );
 }
-
 /*
 const ProfileStack = createStackNavigator({
   Profile: {

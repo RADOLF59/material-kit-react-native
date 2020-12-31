@@ -63,8 +63,8 @@ class Header extends React.Component {
     switch (title) {
       case 'Home':
         return ([
-          <ChatButton key='chat-home' navigation={navigation} isWhite={white} />,
-          <BasketButton key='basket-home' navigation={navigation} isWhite={white} />
+          // <ChatButton key='chat-home' navigation={navigation} isWhite={white} />,
+          // <BasketButton key='basket-home' navigation={navigation} isWhite={white} />
         ]);
       case 'Deals':
         return ([
@@ -206,7 +206,7 @@ const styles = StyleSheet.create({
     zIndex: 5,
   },
   shadow: {
-    backgroundColor: theme.COLORS.WHITE,
+    backgroundColor: materialTheme.COLORS.INFO,
     shadowColor: 'black',
     shadowOffset: { width: 0, height: 2 },
     shadowRadius: 6,
@@ -223,7 +223,7 @@ const styles = StyleSheet.create({
     right: 8,
   },
   header: {
-    backgroundColor: theme.COLORS.WHITE,
+    backgroundColor: materialTheme.COLORS.INFO,
   },
   divider: {
     borderRightWidth: 0.3,

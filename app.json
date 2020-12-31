@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "rn-material-kit-free",
-    "description": "React Native - Material Kit Free",
-    "slug": "rn-material-kit-free",
+    "name": "shariek",
+    "description": "React Native - Material Kit",
+    "slug": "shariek",
     "privacy": "unlisted",
     "sdkVersion": "37.0.0",
     "platforms": [
@@ -24,7 +24,17 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.mds.shaiek",
+      "infoPlist": {
+        "NSLocationWhenInUseUsageDescription": "Your current location will be displayed on the map and used for directions"
+      },
+      "loadJSInBackgroundExperimental": true,
+      "buildNumber": "1"
+    },
+    "android": {
+      "package": "com.mds.shaiek",
+      "versionCode": 1
     }
   }
 }

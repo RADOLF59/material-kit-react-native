@@ -1,11 +1,12 @@
 import React from 'react';
 import { StyleSheet, Dimensions, ScrollView } from 'react-native';
-import { Button, Block, Text, Input, theme } from 'galio-framework';
+import { Button, Block, Text, Input, theme} from 'galio-framework';
 
-import { Icon, Product } from '../components/';
+import { Icon ,Slider, SupplierBox } from '../components/';
 
 const { width } = Dimensions.get('screen');
 import products from '../constants/products';
+import suppliers from '../constants/suppliers';
 
 export default class Home extends React.Component {
   renderSearch = () => {
@@ -18,7 +19,7 @@ export default class Home extends React.Component {
         color="black"
         style={styles.search}
         iconContent={iconCamera}
-        placeholder="What are you looking for?"
+        placeholder="ما الذي تبحث عنه?"
         onFocus={() => navigation.navigate('Pro')}
       />
     )
@@ -44,20 +45,24 @@ export default class Home extends React.Component {
       </Block>
     )
   }
-
   renderProducts = () => {
     return (
       <ScrollView
-        showsVerticalScrollIndicator={false}
-        contentContainerStyle={styles.products}>
+      showsVerticalScrollIndicator={false}
+      contentContainerStyle={styles.products}
+      horizontal={false}>
+        <Block>
+          <Slider  style={{ marginbottom: 5 }}></Slider>
+        </Block>
         <Block flex>
-          <Product product={products[0]} horizontal />
+          {/* <Product product={products[0]} horizontal /> */}
           <Block flex row>
-            <Product product={products[1]} style={{ marginRight: theme.SIZES.BASE }} />
-            <Product product={products[2]} />
+           
+            <SupplierBox supplier={suppliers[1]} style={{ marginRight: theme.SIZES.BASE }} />
+            <SupplierBox supplier={suppliers[2]} />
           </Block>
-          <Product product={products[3]} horizontal />
-          <Product product={products[4]} full />
+          {/* <Product product={products[3]} horizontal /> */}
+          {/* <Product product={products[4]} full /> */}
         </Block>
       </ScrollView>
     )
@@ -66,7 +71,7 @@ export default class Home extends React.Component {
   render() {
     return (
       <Block flex center style={styles.home}>
-        {this.renderProducts()}
+         {this.renderProducts()}
       </Block>
     );
   }
@@ -118,6 +123,5 @@ const styles = StyleSheet.create({
   },
   products: {
     width: width - theme.SIZES.BASE * 2,
-    paddingVertical: theme.SIZES.BASE * 2,
   },
 });

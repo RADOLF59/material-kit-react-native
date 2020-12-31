@@ -30,7 +30,7 @@ class Product extends React.Component {
   }
 }
 
-export default withNavigation(Product);
+// export default withNavigation(Product);
 
 const styles = StyleSheet.create({
   product: {

@@ -10,8 +10,8 @@ const proScreens = [
   "Man",
   "Kids",
   "New Collection",
-  "Sign In",
-  "Sign Up"
+  // "Sign In",
+  // "Sign Up"
 ];
 
 class DrawerItem extends React.Component {
@@ -114,22 +114,6 @@ class DrawerItem extends React.Component {
     }
   };
 
-  renderLabel = () => {
-    const { title } = this.props;
-
-    if (proScreens.includes(title)) {
-      return (
-        <Block middle style={styles.pro}>
-          <Text size={12} color="white">
-            PRO
-          </Text>
-        </Block>
-      );
-    }
-
-    return null;
-  };
-
   render() {
     const { focused, title, navigation } = this.props;
     const proScreen = proScreens.includes(title);
@@ -159,7 +143,6 @@ class DrawerItem extends React.Component {
             >
               {title}
             </Text>
-            {this.renderLabel()}
           </Block>
         </Block>
       </TouchableOpacity>
@@ -175,7 +158,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16
   },
   activeStyle: {
-    backgroundColor: materialTheme.COLORS.ACTIVE,
+    backgroundColor: materialTheme.COLORS.INFO,
     borderRadius: 4
   },
   shadow: {

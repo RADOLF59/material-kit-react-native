@@ -1,3 +1,5 @@
+const Header = require('./../assets/images/header.png');
+const LogoWide = require('./../assets/images/logo-w.png');
 const Onboarding = 'https://images.unsplash.com/photo-1505995433366-e12047f3f144?fit=crop&w=840&q=80';
 const Pro = 'https://images.unsplash.com/photo-1485796826113-174aa68fd81b?fit=crop&w=840&q=80';
 const Products = {
@@ -18,9 +20,11 @@ const Viewed = [
 
 export default {
   Onboarding,
+  Header,
   Pro,
   Products,
   Profile,
   Viewed,
   Avatar,
+  LogoWide,
 }
